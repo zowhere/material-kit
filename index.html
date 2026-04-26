@@ -6,36 +6,117 @@
     <title>YLA Trinity Solutions</title>
     <link rel="stylesheet" href="./assets/css/material-kit.css" />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
       :root {
-        --yla-primary: #2e6bff;
-        --yla-bg: #f4f6fb;
-        --yla-text: #1d2433;
-        --yla-muted: #62708a;
+        --yla-bg: #efe3d6;
+        --yla-surface: #fff8f1;
+        --yla-ink: #2d1f14;
+        --yla-muted: #6e5542;
+        --yla-border: #e2cdb9;
+        --yla-accent: #a1683f;
+        --yla-accent-2: #5f3a23;
+        --yla-accent-soft: #f2e0cf;
       }
 
       body {
-        background: var(--yla-bg);
-        color: var(--yla-text);
+        background: #f6efe8;
+        color: var(--yla-ink);
         padding-bottom: 96px;
+        font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       .page-wrap {
-        max-width: 540px;
+        max-width: 560px;
+      }
+
+      .hero-image-section {
+        margin-top: -0.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .hero-image-frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: 34px;
+        min-height: 320px;
+        box-shadow:
+          0 22px 44px rgba(84, 50, 27, 0.2),
+          0 8px 18px rgba(98, 60, 35, 0.12);
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        transform: scale(1.03);
+      }
+
+      .hero-image-fade {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 18%,
+            rgba(239, 227, 214, 0.16) 42%,
+            rgba(239, 227, 214, 0.62) 68%,
+            rgba(239, 227, 214, 0.94) 86%,
+            var(--yla-bg) 100%
+          );
+      }
+
+      .hero-image-glow {
+        position: absolute;
+        inset: auto -18% -32% -18%;
+        height: 52%;
+        pointer-events: none;
+        background: radial-gradient(circle at 50% 0%, rgba(255, 243, 231, 0.72), transparent 70%);
+      }
+
+      .hero-image-title-wrap {
+        position: absolute;
+        left: 1.35rem;
+        right: 1.35rem;
+        bottom: 1.2rem;
+        z-index: 5;
+      }
+
+      .hero-image-title {
+        display: inline-block;
+        margin: 0;
+        padding: 0.55rem 0.95rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(4px);
+        color: var(--yla-accent-2);
+        font-size: clamp(1.45rem, 4.8vw, 1.9rem);
+        line-height: 1.12;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        box-shadow:
+          0 12px 28px rgba(62, 37, 20, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.85);
       }
 
       .brand-chip {
         display: inline-flex;
         align-items: center;
-        gap: 0.55rem;
         padding: 0.4rem 0.8rem;
         border-radius: 999px;
-        background: #e9efff;
-        color: var(--yla-primary);
+        background: var(--yla-accent-soft);
+        color: var(--yla-accent);
+        border: 1px solid #e5d7ca;
         font-weight: 600;
       }
 
       .hero-title {
-        line-height: 1.25;
+        line-height: 1.2;
         letter-spacing: -0.02em;
       }
 
@@ -49,33 +130,150 @@
         letter-spacing: -0.01em;
       }
 
+      .hero-shell {
+        border-radius: 24px;
+        border: 1px solid var(--yla-border);
+        background: #fff9f4;
+        box-shadow: 0 10px 24px rgba(92, 58, 33, 0.08);
+      }
+
+      .btn-primary-soft {
+        background: var(--yla-accent);
+        border: 1px solid var(--yla-accent);
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(126, 73, 42, 0.18);
+      }
+
+      .btn-primary-soft:hover {
+        background: #75533c;
+        border-color: #75533c;
+        color: #fff;
+      }
+
+      .btn-outline-soft {
+        background: #fff;
+        border: 1px solid var(--yla-border);
+        color: var(--yla-accent-2);
+      }
+
+      .btn-outline-soft:hover {
+        background: var(--yla-accent-soft);
+        color: #6a4e3b;
+      }
+
       .feature-card {
-        border: 0;
-        border-radius: 18px;
-        box-shadow: 0 8px 22px rgba(17, 24, 39, 0.06);
+        border: 1px solid var(--yla-border);
+        border-radius: 20px;
+        background: #fffaf6;
+        box-shadow: 0 8px 20px rgba(72, 45, 22, 0.06);
       }
 
       .feature-icon {
         width: 42px;
         height: 42px;
         border-radius: 12px;
-        background: #e9efff;
-        color: var(--yla-primary);
+        background: #f2e0cf;
+        color: #4d2d1b;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 700;
+        box-shadow: none;
       }
 
       .soft-panel {
-        border-radius: 20px;
-        border: 1px solid #e5eaf4;
-        background: #ffffff;
+        border-radius: 22px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+        box-shadow: 0 10px 22px rgba(90, 56, 31, 0.07);
+      }
+
+      .trust-strip {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+      }
+
+      .trust-item {
+        font-size: 0.88rem;
+        color: var(--yla-muted);
+      }
+
+      .search-input {
+        border-radius: 14px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+      }
+
+      .chip-row {
+        display: flex;
+        gap: 0.55rem;
+        overflow-x: auto;
+        padding-bottom: 0.1rem;
+      }
+
+      .chip-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-chip {
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+        color: var(--yla-muted);
+        border-radius: 999px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .category-chip.active {
+        background: #2f251d;
+        color: #fff;
+        border-color: #2f251d;
+      }
+
+      .service-card img {
+        height: 140px;
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .service-meta {
+        color: var(--yla-muted);
+        font-size: 0.85rem;
+      }
+
+      .step-card {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffcf9;
+        padding: 1rem;
+      }
+
+      .step-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #f2e0cf;
+        color: var(--yla-accent-2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .quote-card {
+        border-radius: 16px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+        padding: 0.95rem;
       }
 
       .role-pill {
-        border: 1px solid #dde5f3;
+        border: 1px solid #dbc7b4;
         border-radius: 999px;
         padding: 0.45rem 0.9rem;
         color: var(--yla-muted);
@@ -85,8 +283,8 @@
 
       .role-pill.active {
         color: #fff;
-        background: var(--yla-primary);
-        border-color: var(--yla-primary);
+        background: var(--yla-accent);
+        border-color: var(--yla-accent);
       }
 
       .tabbar {
@@ -94,11 +292,17 @@
         left: 50%;
         bottom: 14px;
         transform: translateX(-50%);
-        width: min(540px, calc(100% - 24px));
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.95);
-        border: 1px solid #e6ebf5;
-        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+        width: min(560px, calc(100% - 24px));
+        border-radius: 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 251, 246, 0.95) 0%,
+          rgba(249, 238, 226, 0.9) 100%
+        );
+        border: 1px solid var(--yla-border);
+        box-shadow:
+          0 14px 34px rgba(72, 45, 22, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.72);
         backdrop-filter: blur(12px);
       }
 
@@ -113,49 +317,86 @@
       }
 
       .tab-item.active {
-        color: var(--yla-primary);
+        color: var(--yla-accent);
         font-weight: 600;
       }
 
       .tab-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
         margin: 0 auto 0.35rem;
-        background: currentColor;
-        opacity: 0.85;
+        background: linear-gradient(145deg, currentColor 0%, #bd8962 100%);
+        opacity: 0.95;
       }
+
+      .flow-from-image { position: relative; margin-top: -1.65rem; z-index: 5; }
     </style>
   </head>
   <body>
     <main class="container py-4 py-md-5 page-wrap">
-      <header class="mb-4">
-        <span class="brand-chip">YLA</span>
-        <h1 class="h3 fw-bold mt-3 mb-1">Trinity Solutions</h1>
-      </header>
-
-      <section class="mb-4">
-        <h2 class="hero-title h4 fw-bold mb-2">Find the perfect service for you</h2>
-        <p class="hero-subtitle mb-0">
-          Connect with verified UK service providers and club hosts
-        </p>
+      <section class="hero-image-section">
+        <div class="hero-image-frame">
+          <img
+            class="hero-image"
+            src="./assets/img/homecare.jpeg"
+            alt="Professional caregiver helping an elderly woman"
+          />
+          <div class="hero-image-fade"></div>
+          <div class="hero-image-glow"></div>
+          <div class="hero-image-title-wrap">
+            <h1 class="hero-image-title">YLA Trinity Solutions</h1>
+          </div>
+        </div>
       </section>
 
-      <section class="d-grid gap-2 d-sm-flex mb-4">
-        <button class="btn bg-gradient-primary mb-0">Browse Services</button>
-        <button class="btn btn-outline-primary mb-0">Find Hosts</button>
+      <section class="hero-shell p-4 mb-3">
+        <h2 class="hero-title h4 fw-bold mt-0 mb-2">Book trusted care in minutes</h2>
+        <p class="hero-subtitle mb-0">Find verified professionals near you.</p>
+      </section>
+
+      <section class="trust-strip p-3 mb-4">
+        <div class="row g-2 text-center text-md-start">
+          <div class="col-12 col-md-4 trust-item">✓ Verified providers</div>
+          <div class="col-12 col-md-4 trust-item">★ Real ratings</div>
+          <div class="col-12 col-md-4 trust-item">⌁ Secure payments</div>
+        </div>
       </section>
 
       <section class="mb-4">
-        <h3 class="section-title fw-bold mb-3">Why choose YLA?</h3>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h3 class="section-title fw-bold mb-0">Services</h3>
+          <span class="service-meta">Verified UK providers</span>
+        </div>
+        <input class="form-control search-input mb-3" placeholder="Search services..." />
+        <div class="chip-row mb-3">
+          <span class="category-chip active">All Services</span>
+          <span class="category-chip">Beauty</span>
+          <span class="category-chip">Elderly Home Care</span>
+          <span class="category-chip">Physios</span>
+          <span class="category-chip">PTs</span>
+          <span class="category-chip">Barbers</span>
+          <span class="category-chip">Braiders</span>
+          <span class="category-chip">Hair Stylists</span>
+        </div>
         <div class="row g-3">
+          <div class="col-12">
+            <article class="card feature-card service-card">
+              <img src="./assets/img/homecare.jpeg" alt="Elderly home care service" />
+              <div class="card-body">
+                <h4 class="h6 fw-bold mb-1">Elderly Home Care</h4>
+                <p class="service-meta mb-2">Companionship, mobility support, daily routines</p>
+                <button class="btn btn-sm btn-outline-soft mb-0">Explore care providers</button>
+              </div>
+            </article>
+          </div>
           <div class="col-12 col-md-6">
             <article class="card feature-card h-100">
               <div class="card-body">
-                <span class="feature-icon mb-3">Y</span>
-                <h4 class="h6 fw-bold">YLA Verified</h4>
-                <p class="text-sm text-secondary mb-0">
-                  All vendors are verified for quality and reliability
+                <span class="feature-icon mb-3">✂</span>
+                <h4 class="h6 fw-bold">Hair Stylists</h4>
+                <p class="text-sm mb-0" style="color: var(--yla-muted)">
+                  Home and event styling by rated professionals
                 </p>
               </div>
             </article>
@@ -163,32 +404,10 @@
           <div class="col-12 col-md-6">
             <article class="card feature-card h-100">
               <div class="card-body">
-                <span class="feature-icon mb-3">R</span>
-                <h4 class="h6 fw-bold">Rated Services</h4>
-                <p class="text-sm text-secondary mb-0">
-                  Real reviews from real customers
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-12 col-md-6">
-            <article class="card feature-card h-100">
-              <div class="card-body">
-                <span class="feature-icon mb-3">D</span>
-                <h4 class="h6 fw-bold">Direct Messaging</h4>
-                <p class="text-sm text-secondary mb-0">
-                  Communicate with vendors instantly
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-12 col-md-6">
-            <article class="card feature-card h-100">
-              <div class="card-body">
-                <span class="feature-icon mb-3">S</span>
-                <h4 class="h6 fw-bold">Secure Payments</h4>
-                <p class="text-sm text-secondary mb-0">
-                  Safe and encrypted payment processing
+                <span class="feature-icon mb-3">💪</span>
+                <h4 class="h6 fw-bold">Personal Trainers</h4>
+                <p class="text-sm mb-0" style="color: var(--yla-muted)">
+                  In-person sessions tailored to your goals
                 </p>
               </div>
             </article>
@@ -196,24 +415,57 @@
         </div>
       </section>
 
-      <section class="soft-panel p-3 p-md-4 mb-3">
+      <section class="mb-4">
+        <h3 class="section-title fw-bold mb-3">How it works</h3>
+        <div class="row g-2">
+          <div class="col-12 col-md-4">
+            <article class="step-card h-100">
+              <span class="step-number mb-2">1</span>
+              <h4 class="h6 fw-bold mb-1">Choose service</h4>
+              <p class="text-sm mb-0" style="color: var(--yla-muted)">Browse categories and compare ratings.</p>
+            </article>
+          </div>
+          <div class="col-12 col-md-4">
+            <article class="step-card h-100">
+              <span class="step-number mb-2">2</span>
+              <h4 class="h6 fw-bold mb-1">Book a time</h4>
+              <p class="text-sm mb-0" style="color: var(--yla-muted)">Pick a slot that fits your schedule.</p>
+            </article>
+          </div>
+          <div class="col-12 col-md-4">
+            <article class="step-card h-100">
+              <span class="step-number mb-2">3</span>
+              <h4 class="h6 fw-bold mb-1">Pay securely</h4>
+              <p class="text-sm mb-0" style="color: var(--yla-muted)">Message, pay, and review in one place.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <h3 class="section-title fw-bold mb-3">Trusted by customers</h3>
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <article class="quote-card h-100">
+              <p class="mb-1">"Excellent care provider, punctual and very kind."</p>
+              <p class="service-meta mb-0">Amina, London</p>
+            </article>
+          </div>
+          <div class="col-12 col-md-6">
+            <article class="quote-card h-100">
+              <p class="mb-1">"Booked a stylist in under 5 minutes. Smooth process."</p>
+              <p class="service-meta mb-0">Grace, Manchester</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft-panel p-3 p-md-4 mb-0">
         <h3 class="h6 fw-bold mb-2">Are you a service provider?</h3>
-        <p class="text-sm text-secondary mb-3">
-          Join our platform and reach thousands of customers
+        <p class="text-sm mb-3" style="color: var(--yla-muted)">
+          Join YLA to reach more customers in your area.
         </p>
-        <div class="d-grid gap-2 d-sm-flex">
-          <button class="btn bg-gradient-dark mb-0">Become a Vendor</button>
-          <button class="btn btn-outline-dark mb-0">Demo: Switch Role</button>
-        </div>
-      </section>
-
-      <section class="soft-panel p-3 mb-0">
-        <h3 class="h6 fw-bold mb-2">Role</h3>
-        <div class="d-flex gap-2 flex-wrap">
-          <button class="role-pill active">Customer</button>
-          <button class="role-pill">Vendor</button>
-          <button class="role-pill">Admin</button>
-        </div>
+        <button class="btn btn-primary-soft mb-0">Become a Provider</button>
       </section>
     </main>
 
@@ -228,7 +480,7 @@
       </a>
       <a href="#" class="tab-item">
         <span class="tab-dot"></span>
-        Hosting
+        Vendors
       </a>
       <a href="#" class="tab-item">
         <span class="tab-dot"></span>
