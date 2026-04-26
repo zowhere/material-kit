@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services | YLA Trinity Solutions</title>
+    <link rel="stylesheet" href="./assets/css/material-kit.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --yla-bg: #f6efe8;
+        --yla-surface: #fff9f4;
+        --yla-ink: #2d1f14;
+        --yla-muted: #6e5542;
+        --yla-border: #e2cdb9;
+        --yla-accent: #a1683f;
+      }
+
+      body {
+        background: var(--yla-bg);
+        color: var(--yla-ink);
+        padding-bottom: 96px;
+        font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .page-wrap {
+        max-width: 680px;
+      }
+
+      .section-panel {
+        border-radius: 20px;
+        border: 1px solid var(--yla-border);
+        background: var(--yla-surface);
+        box-shadow: 0 8px 20px rgba(72, 45, 22, 0.06);
+      }
+
+      .search-input {
+        border-radius: 14px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+      }
+
+      .chip-row {
+        display: flex;
+        gap: 0.55rem;
+        overflow-x: auto;
+        padding-bottom: 0.1rem;
+      }
+
+      .chip-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-chip {
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+        color: var(--yla-muted);
+        border-radius: 999px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      .category-chip.active {
+        background: #2f251d;
+        color: #fff;
+        border-color: #2f251d;
+      }
+
+      .service-card {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+      }
+
+      .service-card img {
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        height: 165px;
+        object-fit: cover;
+      }
+
+      .service-meta {
+        color: var(--yla-muted);
+        font-size: 0.88rem;
+      }
+
+      .btn-primary-soft {
+        background: var(--yla-accent);
+        border: 1px solid var(--yla-accent);
+        color: #fff;
+      }
+
+      .tabbar {
+        position: fixed;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        width: min(680px, calc(100% - 24px));
+        border-radius: 24px;
+        background: rgba(255, 251, 246, 0.95);
+        border: 1px solid var(--yla-border);
+        box-shadow: 0 14px 34px rgba(72, 45, 22, 0.12);
+      }
+
+      .tab-item {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: var(--yla-muted);
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.65rem 0.3rem 0.55rem;
+      }
+
+      .tab-item.active {
+        color: var(--yla-accent);
+        font-weight: 600;
+      }
+
+      .tab-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        margin: 0 auto 0.35rem;
+        background: linear-gradient(145deg, currentColor 0%, #bd8962 100%);
+        opacity: 0.95;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container py-4 py-md-5 page-wrap">
+      <section class="section-panel p-3 p-md-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h1 class="h4 fw-bold mb-0">Services</h1>
+          <a href="./index.html" class="text-sm" style="color: var(--yla-muted)">Back to home</a>
+        </div>
+        <p class="service-meta mb-3">Find verified service providers</p>
+        <form method="get" action="./services.html" class="mb-3">
+          <input id="serviceSearch" name="q" class="form-control search-input" placeholder="Search services..." />
+        </form>
+        <div class="chip-row">
+          <a class="category-chip active" data-category="all" href="./services.html">All Services</a>
+          <a class="category-chip" data-category="beauty" href="./services.html?category=beauty">Beauty</a>
+          <a class="category-chip" data-category="elderly-home-care" href="./services.html?category=elderly-home-care">Elderly Home Care</a>
+          <a class="category-chip" data-category="physios" href="./services.html?category=physios">Physios</a>
+          <a class="category-chip" data-category="pts" href="./services.html?category=pts">PTs</a>
+          <a class="category-chip" data-category="barbers" href="./services.html?category=barbers">Barbers</a>
+          <a class="category-chip" data-category="braiders" href="./services.html?category=braiders">Braiders</a>
+          <a class="category-chip" data-category="hair-stylists" href="./services.html?category=hair-stylists">Hair Stylists</a>
+        </div>
+      </section>
+
+      <section class="row g-3">
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Elderly home care service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Elderly Home Care</h2>
+              <p class="service-meta mb-2">Companionship, mobility support, daily routines</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Beauty service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Beauty</h2>
+              <p class="service-meta mb-2">Makeup artists and wellness experts for events</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Physio service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Physios</h2>
+              <p class="service-meta mb-2">Home physio sessions and rehabilitation support</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Personal trainer service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Personal Trainers (PTs)</h2>
+              <p class="service-meta mb-2">1:1 coaching for strength, mobility, and fitness</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Barber service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Barbers</h2>
+              <p class="service-meta mb-2">Classic and modern cuts by verified professionals</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="service-card h-100">
+            <img src="./assets/img/homecare.jpeg" class="w-100" alt="Braiding and hair styling service" />
+            <div class="p-3">
+              <h2 class="h6 fw-bold mb-1">Braiders & Hair Stylists</h2>
+              <p class="service-meta mb-2">Protective styles, braids, and event hair styling</p>
+              <button class="btn btn-sm btn-primary-soft mb-0">View providers</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar p-2 d-flex align-items-center" aria-label="Bottom navigation">
+      <a href="./index.html" class="tab-item">
+        <span class="tab-dot"></span>
+        Home
+      </a>
+      <a href="./services.html" class="tab-item active">
+        <span class="tab-dot"></span>
+        Services
+      </a>
+      <a href="#" class="tab-item">
+        <span class="tab-dot"></span>
+        Vendors
+      </a>
+      <a href="#" class="tab-item">
+        <span class="tab-dot"></span>
+        Messages
+      </a>
+    </nav>
+
+    <script src="./assets/js/material-kit.min.js"></script>
+    <script>
+      (function syncQueryAndCategory() {
+        var params = new URLSearchParams(window.location.search);
+        var query = params.get("q");
+        var category = params.get("category");
+        var searchInput = document.getElementById("serviceSearch");
+
+        if (query && searchInput) {
+          searchInput.value = query;
+        }
+
+        if (!category) return;
+
+        var chips = document.querySelectorAll(".category-chip");
+        for (var i = 0; i < chips.length; i++) {
+          chips[i].classList.remove("active");
+          if (chips[i].getAttribute("data-category") === category) {
+            chips[i].classList.add("active");
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

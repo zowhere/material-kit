@@ -26,82 +26,54 @@
         font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      .page-wrap {
-        max-width: 560px;
-      }
-
-      .hero-image-section {
-        margin-top: -0.25rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .hero-image-frame {
+      .page-hero {
         position: relative;
+        min-height: 62vh;
         overflow: hidden;
-        border-radius: 34px;
-        min-height: 320px;
-        box-shadow:
-          0 22px 44px rgba(84, 50, 27, 0.2),
-          0 8px 18px rgba(98, 60, 35, 0.12);
+        background-image: url("./assets/img/homecare.jpeg");
+        background-size: cover;
+        background-position: center 28%;
+        background-repeat: no-repeat;
       }
 
-      .hero-image {
-        width: 100%;
-        height: 100%;
-        min-height: 320px;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-        transform: scale(1.03);
-      }
-
-      .hero-image-fade {
+      .page-hero-mask {
         position: absolute;
         inset: 0;
-        pointer-events: none;
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0) 18%,
-            rgba(239, 227, 214, 0.16) 42%,
-            rgba(239, 227, 214, 0.62) 68%,
-            rgba(239, 227, 214, 0.94) 86%,
-            var(--yla-bg) 100%
+            rgba(35, 25, 18, 0.08) 0%,
+            rgba(35, 25, 18, 0.26) 42%,
+            rgba(35, 25, 18, 0.55) 100%
           );
       }
 
-      .hero-image-glow {
+      .page-hero-content {
         position: absolute;
-        inset: auto -18% -32% -18%;
-        height: 52%;
-        pointer-events: none;
-        background: radial-gradient(circle at 50% 0%, rgba(255, 243, 231, 0.72), transparent 70%);
+        left: 0;
+        right: 0;
+        bottom: 2.5rem;
+        z-index: 2;
       }
 
-      .hero-image-title-wrap {
-        position: absolute;
-        left: 1.35rem;
-        right: 1.35rem;
-        bottom: 1.2rem;
-        z-index: 5;
+      .content-shell {
+        border-radius: 1.25rem;
+        background: #fff8f1;
       }
 
       .hero-image-title {
         display: inline-block;
-        margin: 0;
+        margin: 0 0 0.7rem 0;
         padding: 0.55rem 0.95rem;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.65);
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.66);
         backdrop-filter: blur(4px);
         color: var(--yla-accent-2);
-        font-size: clamp(1.45rem, 4.8vw, 1.9rem);
+        font-size: clamp(1.25rem, 4.6vw, 1.8rem);
         line-height: 1.12;
         font-weight: 700;
         letter-spacing: -0.02em;
-        box-shadow:
-          0 12px 28px rgba(62, 37, 20, 0.22),
-          inset 0 1px 0 rgba(255, 255, 255, 0.85);
       }
 
       .brand-chip {
@@ -118,10 +90,11 @@
       .hero-title {
         line-height: 1.2;
         letter-spacing: -0.02em;
+        color: #fff;
       }
 
       .hero-subtitle {
-        color: var(--yla-muted);
+        color: rgba(255, 255, 255, 0.92);
         font-size: 1rem;
       }
 
@@ -272,6 +245,12 @@
         padding: 0.95rem;
       }
 
+      .app-link-panel {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+      }
+
       .role-pill {
         border: 1px solid #dbc7b4;
         border-radius: 999px;
@@ -292,7 +271,7 @@
         left: 50%;
         bottom: 14px;
         transform: translateX(-50%);
-        width: min(560px, calc(100% - 24px));
+        width: min(1200px, calc(100% - 24px));
         border-radius: 24px;
         background: linear-gradient(
           180deg,
@@ -334,26 +313,21 @@
     </style>
   </head>
   <body>
-    <main class="container py-4 py-md-5 page-wrap">
-      <section class="hero-image-section">
-        <div class="hero-image-frame">
-          <img
-            class="hero-image"
-            src="./assets/img/homecare.jpeg"
-            alt="Professional caregiver helping an elderly woman"
-          />
-          <div class="hero-image-fade"></div>
-          <div class="hero-image-glow"></div>
-          <div class="hero-image-title-wrap">
+    <header class="page-header page-hero">
+      <span class="page-hero-mask"></span>
+      <div class="container page-hero-content">
+        <div class="row">
+          <div class="col-lg-7">
             <h1 class="hero-image-title">YLA Trinity Solutions</h1>
+            <h2 class="hero-title h2 fw-bold mt-0 mb-2">Book trusted care in minutes</h2>
+            <p class="hero-subtitle mb-0">Find verified professionals near you.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <section class="hero-shell p-4 mb-3">
-        <h2 class="hero-title h4 fw-bold mt-0 mb-2">Book trusted care in minutes</h2>
-        <p class="hero-subtitle mb-0">Find verified professionals near you.</p>
-      </section>
+    <main class="card card-body shadow-xl mx-3 mx-md-4 mt-n6 content-shell">
+      <div class="container py-3 py-md-4">
 
       <section class="trust-strip p-3 mb-4">
         <div class="row g-2 text-center text-md-start">
@@ -368,16 +342,18 @@
           <h3 class="section-title fw-bold mb-0">Services</h3>
           <span class="service-meta">Verified UK providers</span>
         </div>
-        <input class="form-control search-input mb-3" placeholder="Search services..." />
+        <form action="./services.html" method="get" class="mb-3">
+          <input class="form-control search-input" name="q" placeholder="Search services..." />
+        </form>
         <div class="chip-row mb-3">
-          <span class="category-chip active">All Services</span>
-          <span class="category-chip">Beauty</span>
-          <span class="category-chip">Elderly Home Care</span>
-          <span class="category-chip">Physios</span>
-          <span class="category-chip">PTs</span>
-          <span class="category-chip">Barbers</span>
-          <span class="category-chip">Braiders</span>
-          <span class="category-chip">Hair Stylists</span>
+          <a class="category-chip active text-decoration-none" href="./services.html">All Services</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=beauty">Beauty</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=elderly-home-care">Elderly Home Care</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=physios">Physios</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=pts">PTs</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=barbers">Barbers</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=braiders">Braiders</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=hair-stylists">Hair Stylists</a>
         </div>
         <div class="row g-3">
           <div class="col-12">
@@ -386,87 +362,14 @@
               <div class="card-body">
                 <h4 class="h6 fw-bold mb-1">Elderly Home Care</h4>
                 <p class="service-meta mb-2">Companionship, mobility support, daily routines</p>
-                <button class="btn btn-sm btn-outline-soft mb-0">Explore care providers</button>
-              </div>
-            </article>
-          </div>
-          <div class="col-12 col-md-6">
-            <article class="card feature-card h-100">
-              <div class="card-body">
-                <span class="feature-icon mb-3">✂</span>
-                <h4 class="h6 fw-bold">Hair Stylists</h4>
-                <p class="text-sm mb-0" style="color: var(--yla-muted)">
-                  Home and event styling by rated professionals
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-12 col-md-6">
-            <article class="card feature-card h-100">
-              <div class="card-body">
-                <span class="feature-icon mb-3">💪</span>
-                <h4 class="h6 fw-bold">Personal Trainers</h4>
-                <p class="text-sm mb-0" style="color: var(--yla-muted)">
-                  In-person sessions tailored to your goals
-                </p>
+                <a class="btn btn-sm btn-outline-soft mb-0" href="./services.html?category=elderly-home-care">Explore care providers</a>
               </div>
             </article>
           </div>
         </div>
+        <a class="btn btn-primary-soft mt-2 mb-0" href="./services.html">View all services</a>
       </section>
-
-      <section class="mb-4">
-        <h3 class="section-title fw-bold mb-3">How it works</h3>
-        <div class="row g-2">
-          <div class="col-12 col-md-4">
-            <article class="step-card h-100">
-              <span class="step-number mb-2">1</span>
-              <h4 class="h6 fw-bold mb-1">Choose service</h4>
-              <p class="text-sm mb-0" style="color: var(--yla-muted)">Browse categories and compare ratings.</p>
-            </article>
-          </div>
-          <div class="col-12 col-md-4">
-            <article class="step-card h-100">
-              <span class="step-number mb-2">2</span>
-              <h4 class="h6 fw-bold mb-1">Book a time</h4>
-              <p class="text-sm mb-0" style="color: var(--yla-muted)">Pick a slot that fits your schedule.</p>
-            </article>
-          </div>
-          <div class="col-12 col-md-4">
-            <article class="step-card h-100">
-              <span class="step-number mb-2">3</span>
-              <h4 class="h6 fw-bold mb-1">Pay securely</h4>
-              <p class="text-sm mb-0" style="color: var(--yla-muted)">Message, pay, and review in one place.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-4">
-        <h3 class="section-title fw-bold mb-3">Trusted by customers</h3>
-        <div class="row g-2">
-          <div class="col-12 col-md-6">
-            <article class="quote-card h-100">
-              <p class="mb-1">"Excellent care provider, punctual and very kind."</p>
-              <p class="service-meta mb-0">Amina, London</p>
-            </article>
-          </div>
-          <div class="col-12 col-md-6">
-            <article class="quote-card h-100">
-              <p class="mb-1">"Booked a stylist in under 5 minutes. Smooth process."</p>
-              <p class="service-meta mb-0">Grace, Manchester</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="soft-panel p-3 p-md-4 mb-0">
-        <h3 class="h6 fw-bold mb-2">Are you a service provider?</h3>
-        <p class="text-sm mb-3" style="color: var(--yla-muted)">
-          Join YLA to reach more customers in your area.
-        </p>
-        <button class="btn btn-primary-soft mb-0">Become a Provider</button>
-      </section>
+      </div>
     </main>
 
     <nav class="tabbar p-2 d-flex align-items-center" aria-label="Bottom navigation">
@@ -474,7 +377,7 @@
         <span class="tab-dot"></span>
         Home
       </a>
-      <a href="#" class="tab-item">
+      <a href="./services.html" class="tab-item">
         <span class="tab-dot"></span>
         Services
       </a>

@@ -240,3 +240,658 @@
 </body>
 
 </html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YLA Trinity Solutions</title>
+    <link rel="stylesheet" href="./assets/css/material-kit.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --yla-bg: #efe3d6;
+        --yla-surface: #fff8f1;
+        --yla-ink: #2d1f14;
+        --yla-muted: #6e5542;
+        --yla-border: #e2cdb9;
+        --yla-accent: #a1683f;
+        --yla-accent-2: #5f3a23;
+        --yla-accent-soft: #f2e0cf;
+      }
+
+      body {
+        background: #f6efe8;
+        color: var(--yla-ink);
+        padding-bottom: 96px;
+        font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .page-wrap {
+        max-width: 560px;
+      }
+
+      .page-hero {
+        position: relative;
+        min-height: 420px;
+        border-radius: 34px;
+        overflow: hidden;
+        background-image: url("./assets/img/homecare.jpeg");
+        background-size: cover;
+        background-position: center;
+        box-shadow:
+          0 22px 44px rgba(84, 50, 27, 0.2),
+          0 8px 18px rgba(98, 60, 35, 0.12);
+      }
+
+      .page-hero-mask {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(35, 25, 18, 0.08) 0%,
+            rgba(35, 25, 18, 0.26) 42%,
+            rgba(35, 25, 18, 0.55) 100%
+          );
+      }
+
+      .page-hero-content {
+        position: absolute;
+        left: 1.2rem;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        z-index: 2;
+      }
+
+      .hero-image-title {
+        display: inline-block;
+        margin: 0 0 0.7rem 0;
+        padding: 0.55rem 0.95rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.66);
+        backdrop-filter: blur(4px);
+        color: var(--yla-accent-2);
+        font-size: clamp(1.25rem, 4.6vw, 1.8rem);
+        line-height: 1.12;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .brand-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 0.8rem;
+        border-radius: 999px;
+        background: var(--yla-accent-soft);
+        color: var(--yla-accent);
+        border: 1px solid #e5d7ca;
+        font-weight: 600;
+      }
+
+      .hero-title {
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      .hero-subtitle {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+      }
+
+      .hero-shell {
+        border-radius: 24px;
+        border: 1px solid var(--yla-border);
+        background: #fff9f4;
+        box-shadow: 0 10px 24px rgba(92, 58, 33, 0.08);
+      }
+
+      .btn-primary-soft {
+        background: var(--yla-accent);
+        border: 1px solid var(--yla-accent);
+        color: #fff;
+        box-shadow: 0 8px 18px rgba(126, 73, 42, 0.18);
+      }
+
+      .btn-primary-soft:hover {
+        background: #75533c;
+        border-color: #75533c;
+        color: #fff;
+      }
+
+      .btn-outline-soft {
+        background: #fff;
+        border: 1px solid var(--yla-border);
+        color: var(--yla-accent-2);
+      }
+
+      .btn-outline-soft:hover {
+        background: var(--yla-accent-soft);
+        color: #6a4e3b;
+      }
+
+      .feature-card {
+        border: 1px solid var(--yla-border);
+        border-radius: 20px;
+        background: #fffaf6;
+        box-shadow: 0 8px 20px rgba(72, 45, 22, 0.06);
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: #f2e0cf;
+        color: #4d2d1b;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow: none;
+      }
+
+      .soft-panel {
+        border-radius: 22px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+        box-shadow: 0 10px 22px rgba(90, 56, 31, 0.07);
+      }
+
+      .trust-strip {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+      }
+
+      .trust-item {
+        font-size: 0.88rem;
+        color: var(--yla-muted);
+      }
+
+      .search-input {
+        border-radius: 14px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+      }
+
+      .chip-row {
+        display: flex;
+        gap: 0.55rem;
+        overflow-x: auto;
+        padding-bottom: 0.1rem;
+      }
+
+      .chip-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-chip {
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+        color: var(--yla-muted);
+        border-radius: 999px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .category-chip.active {
+        background: #2f251d;
+        color: #fff;
+        border-color: #2f251d;
+      }
+
+      .service-card img {
+        height: 140px;
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .service-meta {
+        color: var(--yla-muted);
+        font-size: 0.85rem;
+      }
+
+      .step-card {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffcf9;
+        padding: 1rem;
+      }
+
+      .step-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #f2e0cf;
+        color: var(--yla-accent-2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .quote-card {
+        border-radius: 16px;
+        border: 1px solid var(--yla-border);
+        background: #fff;
+        padding: 0.95rem;
+      }
+
+      .app-link-panel {
+        border-radius: 18px;
+        border: 1px solid var(--yla-border);
+        background: #fffaf6;
+      }
+
+      .role-pill {
+        border: 1px solid #dbc7b4;
+        border-radius: 999px;
+        padding: 0.45rem 0.9rem;
+        color: var(--yla-muted);
+        font-weight: 500;
+        background: #fff;
+      }
+
+      .role-pill.active {
+        color: #fff;
+        background: var(--yla-accent);
+        border-color: var(--yla-accent);
+      }
+
+      .tabbar {
+        position: fixed;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        width: min(560px, calc(100% - 24px));
+        border-radius: 24px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 251, 246, 0.95) 0%,
+          rgba(249, 238, 226, 0.9) 100%
+        );
+        border: 1px solid var(--yla-border);
+        box-shadow:
+          0 14px 34px rgba(72, 45, 22, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(12px);
+      }
+
+      .tab-item {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: var(--yla-muted);
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.65rem 0.3rem 0.55rem;
+      }
+
+      .tab-item.active {
+        color: var(--yla-accent);
+        font-weight: 600;
+      }
+
+      .tab-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        margin: 0 auto 0.35rem;
+        background: linear-gradient(145deg, currentColor 0%, #bd8962 100%);
+        opacity: 0.95;
+      }
+
+      .flow-from-image { position: relative; margin-top: -1.65rem; z-index: 5; }
+    </style>
+  </head>
+  <body>
+    <main class="container py-4 py-md-5 page-wrap">
+      <section class="page-hero mb-3">
+        <span class="page-hero-mask"></span>
+        <div class="page-hero-content">
+          <h1 class="hero-image-title">YLA Trinity Solutions</h1>
+          <h2 class="hero-title h4 fw-bold mt-0 mb-2">Book trusted care in minutes</h2>
+          <p class="hero-subtitle mb-0">Find verified professionals near you.</p>
+        </div>
+      </section>
+
+      <section class="trust-strip p-3 mb-4">
+        <div class="row g-2 text-center text-md-start">
+          <div class="col-12 col-md-4 trust-item">✓ Verified providers</div>
+          <div class="col-12 col-md-4 trust-item">★ Real ratings</div>
+          <div class="col-12 col-md-4 trust-item">⌁ Secure payments</div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h3 class="section-title fw-bold mb-0">Services</h3>
+          <span class="service-meta">Verified UK providers</span>
+        </div>
+        <form action="./services.html" method="get" class="mb-3">
+          <input class="form-control search-input" name="q" placeholder="Search services..." />
+        </form>
+        <div class="chip-row mb-3">
+          <a class="category-chip active text-decoration-none" href="./services.html">All Services</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=beauty">Beauty</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=elderly-home-care">Elderly Home Care</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=physios">Physios</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=pts">PTs</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=barbers">Barbers</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=braiders">Braiders</a>
+          <a class="category-chip text-decoration-none" href="./services.html?category=hair-stylists">Hair Stylists</a>
+        </div>
+        <div class="row g-3">
+          <div class="col-12">
+            <article class="card feature-card service-card">
+              <img src="./assets/img/homecare.jpeg" alt="Elderly home care service" />
+              <div class="card-body">
+                <h4 class="h6 fw-bold mb-1">Elderly Home Care</h4>
+                <p class="service-meta mb-2">Companionship, mobility support, daily routines</p>
+                <a class="btn btn-sm btn-outline-soft mb-0" href="./services.html?category=elderly-home-care">Explore care providers</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6">
+            <article class="card feature-card h-100">
+              <div class="card-body">
+                <span class="feature-icon mb-3">✂</span>
+                <h4 class="h6 fw-bold">Hair Stylists</h4>
+                <p class="text-sm mb-0" style="color: var(--yla-muted)">
+                  Home and event styling by rated professionals
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6">
+            <article class="card feature-card h-100">
+              <div class="card-body">
+                <span class="feature-icon mb-3">💪</span>
+                <h4 class="h6 fw-bold">Personal Trainers</h4>
+                <p class="text-sm mb-0" style="color: var(--yla-muted)">
+                  In-person sessions tailored to your goals
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <a class="btn btn-primary-soft mt-2 mb-0" href="./services.html">View all services</a>
+      </section>
+    </main>
+
+    <nav class="tabbar p-2 d-flex align-items-center" aria-label="Bottom navigation">
+      <a href="#" class="tab-item active">
+        <span class="tab-dot"></span>
+        Home
+      </a>
+      <a href="./services.html" class="tab-item">
+        <span class="tab-dot"></span>
+        Services
+      </a>
+      <a href="#" class="tab-item">
+        <span class="tab-dot"></span>
+        Vendors
+      </a>
+      <a href="#" class="tab-item">
+        <span class="tab-dot"></span>
+        Messages
+      </a>
+    </nav>
+
+    <script src="./assets/js/material-kit.min.js"></script>
+  </body>
+</html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Hello, world!</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navbar Transparent -->
+  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
+    <div class="container">
+      <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        Material Kit 2
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover ms-auto">
+          <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages2" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
+              Pages
+              <img src="./assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
+              <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-none d-block">
+            </a>
+          </li>
+
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+              Sections
+              <img src="./assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
+              <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-none d-block">
+            </a>
+          </li>
+
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">article</i>
+              Docs
+              <img src="./assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
+              <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-none d-block">
+            </a>
+          </li>
+          <li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
+            <a href="https://www.creative-tim.com/product/material-kit" class="btn btn-sm  bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Free Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+
+  <div class="page-header min-vh-80" style="background-image: url('https://images.unsplash.com/photo-1630752708689-02c8636b9141?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2490&q=80')">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="text-center">
+            <h1 class="text-white">Your title here</h1>
+            <h3 class="text-white">Subtitle</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <div class="container">
+      <div class="section text-center">
+        <h2 class="title">Your main section here</h2>
+      </div>
+    </div>
+  </div>
+  <footer class="footer pt-5 mt-5">
+    <div class="container">
+      <div class=" row">
+        <div class="col-md-3 mb-4 ms-auto">
+          <div>
+            <a href="https://www.creative-tim.com/product/material-kit">
+              <img src="./assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
+            </a>
+            <h6 class="font-weight-bolder mb-4">Material Kit 2</h6>
+          </div>
+          <div>
+            <ul class="d-flex flex-row ms-n3 nav">
+              <li class="nav-item">
+                <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim/" target="_blank">
+                  <i class="fab fa-facebook text-lg opacity-8"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pe-1" href="https://twitter.com/creativetim" target="_blank">
+                  <i class="fab fa-twitter text-lg opacity-8"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pe-1" href="https://dribbble.com/creativetim" target="_blank">
+                  <i class="fab fa-dribbble text-lg opacity-8"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pe-1" href="https://github.com/creativetimofficial" target="_blank">
+                  <i class="fab fa-github text-lg opacity-8"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pe-1" href="https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w" target="_blank">
+                  <i class="fab fa-youtube text-lg opacity-8"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-6 col-6 mb-4">
+          <div>
+            <h6 class="text-sm">Company</h6>
+            <ul class="flex-column ms-n3 nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/presentation" target="_blank">
+                  About Us
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/templates/free" target="_blank">
+                  Freebies
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/templates/premium" target="_blank">
+                  Premium Tools
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/blog" target="_blank">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-6 col-6 mb-4">
+          <div>
+            <h6 class="text-sm">Resources</h6>
+            <ul class="flex-column ms-n3 nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://iradesign.io/" target="_blank">
+                  Illustrations
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/bits" target="_blank">
+                  Bits & Snippets
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/affiliates/new" target="_blank">
+                  Affiliate Program
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-6 col-6 mb-4">
+          <div>
+            <h6 class="text-sm">Help & Support</h6>
+            <ul class="flex-column ms-n3 nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/contact-us" target="_blank">
+                  Contact Us
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center" target="_blank">
+                  Knowledge Center
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://services.creative-tim.com/?ref=ct-mk2-footer" target="_blank">
+                  Custom Development
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/sponsorships" target="_blank">
+                  Sponsorships
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
+          <div>
+            <h6 class="text-sm">Legal</h6>
+            <ul class="flex-column ms-n3 nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/terms-of-service/" target="_blank">
+                  Terms & Conditions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/privacy-policy/" target="_blank">
+                  Privacy Policy
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
+                  Licenses (EULA)
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="text-center">
+            <p class="text-dark my-4 text-sm font-weight-normal">
+              All rights reserved. Copyright © <script>
+                document.write(new Date().getFullYear())
+              </script> Material Kit by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
