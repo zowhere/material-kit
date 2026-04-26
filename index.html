@@ -23,7 +23,12 @@
         background: #f6efe8;
         color: var(--yla-ink);
         padding-bottom: 96px;
-        font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family:
+          "Manrope",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
       }
 
       .page-hero {
@@ -39,13 +44,12 @@
       .page-hero-mask {
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(35, 25, 18, 0.08) 0%,
-            rgba(35, 25, 18, 0.26) 42%,
-            rgba(35, 25, 18, 0.55) 100%
-          );
+        background: linear-gradient(
+          180deg,
+          rgba(35, 25, 18, 0.08) 0%,
+          rgba(35, 25, 18, 0.26) 42%,
+          rgba(35, 25, 18, 0.55) 100%
+        );
       }
 
       .page-hero-content {
@@ -309,7 +313,11 @@
         opacity: 0.95;
       }
 
-      .flow-from-image { position: relative; margin-top: -1.65rem; z-index: 5; }
+      .flow-from-image {
+        position: relative;
+        margin-top: -1.65rem;
+        z-index: 5;
+      }
     </style>
   </head>
   <body>
@@ -319,8 +327,12 @@
         <div class="row">
           <div class="col-lg-7">
             <h1 class="hero-image-title">YLA Trinity Solutions</h1>
-            <h2 class="hero-title h2 fw-bold mt-0 mb-2">Book trusted care in minutes</h2>
-            <p class="hero-subtitle mb-0">Find verified professionals near you.</p>
+            <h2 class="hero-title h2 fw-bold mt-0 mb-2">
+              Book trusted care in minutes
+            </h2>
+            <p class="hero-subtitle mb-0">
+              Find verified professionals near you.
+            </p>
           </div>
         </div>
       </div>
@@ -328,51 +340,100 @@
 
     <main class="card card-body shadow-xl mx-3 mx-md-4 mt-n6 content-shell">
       <div class="container py-3 py-md-4">
-
-      <section class="trust-strip p-3 mb-4">
-        <div class="row g-2 text-center text-md-start">
-          <div class="col-12 col-md-4 trust-item">✓ Verified providers</div>
-          <div class="col-12 col-md-4 trust-item">★ Real ratings</div>
-          <div class="col-12 col-md-4 trust-item">⌁ Secure payments</div>
-        </div>
-      </section>
-
-      <section class="mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h3 class="section-title fw-bold mb-0">Services</h3>
-          <span class="service-meta">Verified UK providers</span>
-        </div>
-        <form action="./services.html" method="get" class="mb-3">
-          <input class="form-control search-input" name="q" placeholder="Search services..." />
-        </form>
-        <div class="chip-row mb-3">
-          <a class="category-chip active text-decoration-none" href="./services.html">All Services</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=beauty">Beauty</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=elderly-home-care">Elderly Home Care</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=physios">Physios</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=pts">PTs</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=barbers">Barbers</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=braiders">Braiders</a>
-          <a class="category-chip text-decoration-none" href="./services.html?category=hair-stylists">Hair Stylists</a>
-        </div>
-        <div class="row g-3">
-          <div class="col-12">
-            <article class="card feature-card service-card">
-              <img src="./assets/img/homecare.jpeg" alt="Elderly home care service" />
-              <div class="card-body">
-                <h4 class="h6 fw-bold mb-1">Elderly Home Care</h4>
-                <p class="service-meta mb-2">Companionship, mobility support, daily routines</p>
-                <a class="btn btn-sm btn-outline-soft mb-0" href="./services.html?category=elderly-home-care">Explore care providers</a>
-              </div>
-            </article>
+        <section class="trust-strip p-3 mb-4">
+          <div class="row g-2 text-center text-md-start">
+            <div class="col-12 col-md-4 trust-item">✓ Verified providers</div>
+            <div class="col-12 col-md-4 trust-item">★ Real ratings</div>
+            <div class="col-12 col-md-4 trust-item">⌁ Secure payments</div>
           </div>
-        </div>
-        <a class="btn btn-primary-soft mt-2 mb-0" href="./services.html">View all services</a>
-      </section>
+        </section>
+
+        <section class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="section-title fw-bold mb-0">Services</h3>
+            <span class="service-meta">Verified UK providers</span>
+          </div>
+          <form action="./services.html" method="get" class="mb-3">
+            <input
+              class="form-control search-input"
+              name="q"
+              placeholder="Search services..."
+            />
+          </form>
+          <div class="chip-row mb-3">
+            <a
+              class="category-chip active text-decoration-none"
+              href="./services.html"
+              >All Services</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=beauty"
+              >Beauty</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=elderly-home-care"
+              >Elderly Home Care</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=physios"
+              >Physios</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=pts"
+              >PTs</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=barbers"
+              >Barbers</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=braiders"
+              >Braiders</a
+            >
+            <a
+              class="category-chip text-decoration-none"
+              href="./services.html?category=hair-stylists"
+              >Hair Stylists</a
+            >
+          </div>
+          <div class="row g-3">
+            <div class="col-12">
+              <article class="card feature-card service-card">
+                <img
+                  src="./assets/img/homecare.jpeg"
+                  alt="Elderly home care service"
+                />
+                <div class="card-body">
+                  <h4 class="h6 fw-bold mb-1">Elderly Home Care</h4>
+                  <p class="service-meta mb-2">
+                    Companionship, mobility support, daily routines
+                  </p>
+                  <a
+                    class="btn btn-sm btn-outline-soft mb-0"
+                    href="./services.html?category=elderly-home-care"
+                    >Explore care providers</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+          <a class="btn btn-primary-soft mt-2 mb-0" href="./services.html"
+            >View all services</a
+          >
+        </section>
       </div>
     </main>
 
-    <nav class="tabbar p-2 d-flex align-items-center" aria-label="Bottom navigation">
+    <nav
+      class="tabbar p-2 d-flex align-items-center"
+      aria-label="Bottom navigation"
+    >
       <a href="#" class="tab-item active">
         <span class="tab-dot"></span>
         Home
@@ -381,10 +442,7 @@
         <span class="tab-dot"></span>
         Services
       </a>
-      <a href="#" class="tab-item">
-        <span class="tab-dot"></span>
-        Vendors
-      </a>
+
       <a href="#" class="tab-item">
         <span class="tab-dot"></span>
         Messages
